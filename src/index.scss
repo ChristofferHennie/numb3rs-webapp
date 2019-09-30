@@ -155,6 +155,12 @@ input[type='range'] {
 	}
 }
 
+@media (max-width: 760) {
+	.listItem {
+		@include text-style(15px);
+	}
+}
+
 .showTargetNumber_BTN {
 	display: block; // change between block and none
 	margin: 15% auto 0 auto;
