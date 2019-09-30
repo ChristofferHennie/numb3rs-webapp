@@ -158,9 +158,6 @@ input[type='range'] {
 @media (max-width: 760px) {
 	.numbersList .listItem {
 		@include text-style(25px);
-	}
-
-	.listItem {
 		padding: 15px 25px;
 	}
 }
@@ -216,11 +213,5 @@ input[type='range'] {
 
 	&:focus {
 		outline: none;
-	}
-}
-
-@media (max-width: 760px) {
-	.reload_BTN {
-		left: 25%;
 	}
 }
