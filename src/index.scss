@@ -218,3 +218,9 @@ input[type='range'] {
 		outline: none;
 	}
 }
+
+@media (max-width: 760px) {
+	.reload_BTN {
+		left: 25%;
+	}
+}
