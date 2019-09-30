@@ -156,7 +156,7 @@ input[type='range'] {
 }
 
 @media (max-width: 760px) {
-	.listItem {
+	.numbersList .listItem {
 		@include text-style(15px);
 	}
 }
