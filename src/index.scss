@@ -155,7 +155,7 @@ input[type='range'] {
 	}
 }
 
-@media (max-width: 760) {
+@media (max-width: 760px) {
 	.listItem {
 		@include text-style(15px);
 	}
