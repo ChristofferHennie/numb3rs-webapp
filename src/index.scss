@@ -1,0 +1,210 @@
+/*
+  .welcomeScreen
+  (.largeNumberRange
+  .smallNumberRange)
+  .rangeStyle
+  .largeNumbersOutput
+  .smallNumbersOutput
+  .proceed_BTN
+
+  .mainScreen
+  .numbersList
+  .listItem
+  .showTargetNumber_BTN
+  .targetNumber
+  .reload_BTN
+*/
+
+@mixin text-style($font-size, $text-align: center) {
+	font-family: sans-serif;
+	text-align: $text-align;
+	color: #fcfcfc;
+	font-size: $font-size;
+}
+
+$background-color: #181818;
+
+body {
+	margin: 0;
+	padding: 0;
+	background: $background-color;
+}
+
+.welcomeScreen {
+	position: fixed;
+	display: block; // Change to show or hide welcome screen
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+	padding-top: 10%;
+	background: $background-color;
+	@include text-style(20px);
+
+	h1 {
+		@include text-style(58px);
+	}
+}
+
+/* Range Styling */
+$track-width: 75%;
+$track-height: 40px;
+$track-background-color: #111;
+$track-border-radius: 15px;
+
+$thumb-color: #27e330;
+$thumb-height: 55px;
+$thumb-width: 30px;
+$thumb-border-radius: 8px;
+
+input[type='range'] {
+	border-style: border-box;
+	-webkit-appearance: none;
+	width: $track-width;
+	height: $track-height;
+	background: $track-background-color;
+	border-radius: $track-border-radius;
+	transition: 0.4s;
+	opacity: 1;
+
+	&:hover {
+		width: $track-width + 5%;
+	}
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		cursor: pointer;
+		box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.75);
+		opacity: 0.6;
+		transition: 0.2s;
+		border-radius: $thumb-border-radius;
+		background: $thumb-color;
+		height: $thumb-height;
+		width: $thumb-width;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.largeNumberRange {
+	margin-bottom: 30px;
+}
+
+.smallNumberRange {
+	margin-bottom: 20px;
+}
+
+.proceed_BTN {
+	margin: 0;
+	padding: 1.25% 4%;
+	@include text-style(25px);
+	background: #1bc223;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
+	transition: 0.1s;
+
+	&:active {
+		transform: translateY(1.5px);
+		opacity: 0.9;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.mainScreen {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	@include text-style(25px);
+	z-index: 1;
+}
+
+.numbersList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	justify-content: center;
+	margin: 0;
+
+	.listItem {
+		@include text-style(50px);
+		background-color: #333;
+		padding: 30px 50px;
+		margin: 10px;
+		border-radius: 15px;
+		text-align: center;
+	}
+}
+
+@media (max-width: 1000px) {
+	.numbersList {
+		flex-wrap: wrap;
+	}
+}
+
+.showTargetNumber_BTN {
+	display: block; // change between block and none
+	margin: 15% auto 0 auto;
+	padding: 1.25% 4%;
+	@include text-style(25px);
+	background: #1bc223;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
+	transition: 0.1s;
+
+	&:active {
+		transform: translateY(1.5px);
+		opacity: 0.9;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.targetNumber {
+	display: none; // change between block and none
+	margin: 15% auto 0 auto;
+	padding: 1.25% 4%;
+	width: 90px;
+	@include text-style(50px);
+	background: #1bc223;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
+}
+
+.reload_BTN {
+	position: fixed;
+	left: 50%;
+	bottom: 0px;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+
+	background-color: transparent;
+	border: 0;
+	color: #333;
+	transition: 0.1s;
+
+	&:active {
+		opacity: 0.9;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
