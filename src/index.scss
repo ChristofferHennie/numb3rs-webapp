@@ -157,7 +157,11 @@ input[type='range'] {
 
 @media (max-width: 760px) {
 	.numbersList .listItem {
-		@include text-style(15px);
+		@include text-style(25px);
+	}
+
+	.listItem {
+		padding: 15px 25px;
 	}
 }
 
