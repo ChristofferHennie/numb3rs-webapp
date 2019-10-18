@@ -1,24 +1,19 @@
 {
-  "name": "numb3r_webapp",
+  "name": "numb3r_webapp_v2-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "build": "parcel build ./index.html"
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChristofferHennie/numb3rs-webapp.git"
+  "devDependencies": {
+    "sass": "^1.23.0"
+  },
+  "scripts": {
+    "build": "parcel build ./index.html",
+    "dev": "parcel dev ./index.html"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChristofferHennie/numb3rs-webapp/issues"
-  },
-  "homepage": "https://github.com/ChristofferHennie/numb3rs-webapp#readme",
-  "devDependencies": {
-    "parcel-bundler": "^1.12.3",
-    "sass": "^1.22.12"
-  }
+  "license": "ISC"
 }
