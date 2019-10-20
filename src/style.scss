@@ -13,6 +13,12 @@ body {
 	text-shadow: 10px 14px 6px rgba(0, 0, 0, 0.16);
 }
 
+@media (max-width: 800px) {
+	.welcome h1 {
+		font-size: 45px;
+	}
+}
+
 a {
 	text-align: center;
 	text-decoration: none;
@@ -39,5 +45,20 @@ a {
 
 	&:hover {
 		transform: translateY(-20px);
+	}
+}
+
+@media (max-width: 800px) {
+	.style-shared {
+		margin: 10px;
+		width: 50%;
+
+		a {
+			font-size: 25px;
+		}
+
+		img {
+			width: 75%;
+		}
 	}
 }
