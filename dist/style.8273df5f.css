@@ -190,7 +190,7 @@ input[type=range]:focus {
 .reload_BTN {
   position: fixed;
   left: 50%;
-  bottom: 0px;
+  bottom: 25px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
   background-color: transparent;
