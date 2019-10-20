@@ -48,24 +48,24 @@ body {
 input[type=range] {
   border-style: border-box;
   -webkit-appearance: none;
-  width: 75%;
-  height: 40px;
+  width: 65%;
+  height: 42px;
   background: #333333;
   border-radius: 15px;
   transition: 0.4s;
   opacity: 1;
 }
 input[type=range]:hover {
-  width: 80%;
+  width: 70%;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   cursor: pointer;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.75);
-  opacity: 0.6;
+  opacity: 0.8;
   transition: 0.2s;
   border-radius: 8px;
-  background: #27e330;
+  background: #11b935;
   height: 55px;
   width: 30px;
 }
@@ -86,12 +86,12 @@ input[type=range]:focus {
 
 .proceed_BTN {
   margin: 0;
-  padding: 1.25% 4%;
+  padding: 1% 2.5%;
   font-family: sans-serif;
   text-align: center;
   color: #fcfcfc;
-  font-size: 25px;
-  background: #1bc223;
+  font-size: 45px;
+  background: #11b935;
   border: 0;
   border-radius: 5px;
   box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
@@ -157,8 +157,8 @@ input[type=range]:focus {
   font-family: sans-serif;
   text-align: center;
   color: #fcfcfc;
-  font-size: 25px;
-  background: #1bc223;
+  font-size: 45px;
+  background: #11b935;
   border: 0;
   border-radius: 5px;
   box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
@@ -181,7 +181,7 @@ input[type=range]:focus {
   text-align: center;
   color: #fcfcfc;
   font-size: 50px;
-  background: #1bc223;
+  background: #11b935;
   border: 0;
   border-radius: 5px;
   box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);

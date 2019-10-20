@@ -23,6 +23,7 @@
 }
 
 $background-color: #181818;
+$main-color: #1b92e2;
 
 body {
 	margin: 0;
@@ -50,12 +51,12 @@ body {
 }
 
 /* Range Styling */
-$track-width: 75%;
-$track-height: 40px;
+$track-width: 65%;
+$track-height: 42px;
 $track-background-color: #333333;
 $track-border-radius: 15px;
 
-$thumb-color: #27e330;
+$thumb-color: $main-color;
 $thumb-height: 55px;
 $thumb-width: 30px;
 $thumb-border-radius: 8px;
@@ -78,7 +79,7 @@ input[type='range'] {
 		-webkit-appearance: none;
 		cursor: pointer;
 		box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.75);
-		opacity: 0.6;
+		opacity: 0.8;
 		transition: 0.2s;
 		border-radius: $thumb-border-radius;
 		background: $thumb-color;
@@ -105,9 +106,9 @@ input[type='range'] {
 
 .proceed_BTN {
 	margin: 0;
-	padding: 1.25% 4%;
-	@include text-style(25px);
-	background: #1bc223;
+	padding: 1% 2.5%;
+	@include text-style(45px);
+	background: $main-color;
 	border: 0;
 	border-radius: 5px;
 	box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
@@ -166,8 +167,8 @@ input[type='range'] {
 	display: block; // change between block and none
 	margin: 15% auto 0 auto;
 	padding: 1.25% 4%;
-	@include text-style(25px);
-	background: #1bc223;
+	@include text-style(45px);
+	background: $main-color;
 	border: 0;
 	border-radius: 5px;
 	box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);
@@ -189,7 +190,7 @@ input[type='range'] {
 	padding: 1.25% 4%;
 	width: 90px;
 	@include text-style(50px);
-	background: #1bc223;
+	background: $main-color;
 	border: 0;
 	border-radius: 5px;
 	box-shadow: 11px 13px 22px rgba(0, 0, 0, 0.77);

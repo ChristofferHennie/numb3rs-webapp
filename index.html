@@ -4,22 +4,32 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="./src/style.scss" />
 		<title>Home</title>
 	</head>
 	<body>
-		<div>
-			<img
-				src="src/svg/undraw_mathematics_4otb.svg"
-				alt="Enkel Vansklighet"
-			/>
-			<a href="pages/easyMode/easy.html">Enkel</a>
+		<div class="welcome">
+			<h1>VELKOMMEN</h1>
 		</div>
-		<div>
-			<img
-				src="src/svg/undraw_joyride_hnno-2.svg"
-				alt="Normal Vansklighet"
-			/>
-			<a href="pages/normalMode/normal.html">Normal</a>
+		<div class="container">
+			<div class="Easy-Mode style-shared">
+				<a href="pages/easyMode/easy.html">
+					<img
+						src="./src/svg/Easy-Mode.svg"
+						alt="Enkel Vanskelighet"
+					/>
+					<p>Enkel Vanskelighet</p>
+				</a>
+			</div>
+			<div class="Normal-Mode style-shared">
+				<a href="pages/normalMode/normal.html">
+					<img
+						src="./src/svg/Normal-Mode.svg"
+						alt="Normal Vanskelighet"
+					/>
+					<p>Normal Vanskelighet</p>
+				</a>
+			</div>
 		</div>
 	</body>
 </html>

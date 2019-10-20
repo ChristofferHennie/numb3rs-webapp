@@ -117,132 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"pages/normalMode/src/main.js":[function(require,module,exports) {
-// DOM Objects
-// Screens
-var welcomeScreen = document.querySelector('.welcomeScreen'); // Small and large range
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-var largeRange = document.querySelector('.largeNumberRange');
-var smallRange = document.querySelector('.smallNumberRange'); // Small and large range output
-
-var largeRangeValueOutput = document.querySelector('.largeNumbersOutput');
-var smallRangeValueOutput = document.querySelector('.smallNumbersOutput'); // Output for final number array
-
-var numbersList = document.querySelector('.numbersList'); // Target number output
-
-var targetNumberOutput = document.querySelector('.targetNumber'); // Buttons
-
-var proceedWelcomeBTN = document.querySelector('.proceed_BTN');
-var showTargetBTN = document.querySelector('.showTargetNumber_BTN');
-var reloadBTN = document.querySelector('.reload_BTN'); // Javascript variables
-
-var largeNumArray = [25, 50, 75, 100];
-var smallNumArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-var amountOfLarge;
-var amountOfSmall;
-var finalArray = [];
-var maxSum = 100;
-var minSum = 999;
-
-var largeSliderChange = function largeSliderChange() {
-  smallRange.value = 6 - largeRange.value;
-  largeRangeValueOutput.textContent = largeRange.value;
-  smallRangeValueOutput.textContent = smallRange.value;
-};
-
-var smallSliderChange = function smallSliderChange() {
-  largeRange.value = 6 - smallRange.value;
-  smallRangeValueOutput.textContent = smallRange.value;
-  largeRangeValueOutput.textContent = largeRange.value;
-};
-
-largeRange.addEventListener('input', largeSliderChange);
-smallRange.addEventListener('input', smallSliderChange);
-
-var combineArrays = function combineArrays() {
-  for (var i = 0; i < amountOfSmall; i++) {
-    finalArray.push(smallNumArray[Math.floor(Math.random() * smallNumArray.length)]);
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  for (var _i = 0; _i < amountOfLarge; _i++) {
-    finalArray.push(largeNumArray[Math.floor(Math.random() * largeNumArray.length)]);
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
   }
 
-  return finalArray;
-};
+  return '/';
+}
 
-var shuffle = function shuffle(array) {
-  var currentIndex = array.length,
-      temporaryValue,
-      randomIndex; // While there remain elements to shuffle...
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
 
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1; // And swap it with the current element.
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
 
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
   }
 
-  return array;
-};
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
 
-var outputFinalArray = function outputFinalArray(array) {
-  for (var i = 0; i < array.length; i++) {
-    var item = document.createElement('div');
-    var itemProp = document.createAttribute('class');
-    itemProp.value = 'listItem';
-    item.setAttributeNode(itemProp);
-    item.appendChild(document.createTextNode(array[i]));
-    numbersList.appendChild(item);
-  }
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
 
-  return numbersList;
-};
+    cssTimeout = null;
+  }, 50);
+}
 
-var resetNumberArrayOutput = function resetNumberArrayOutput() {
-  var resetList = document.querySelectorAll('.numbersList div');
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/style.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-  for (var i = 0; i < resetList.length; i++) {
-    resetList[i].parentNode.removeChild(resetList[i]);
-  }
-};
-
-var randomTargetNumber = function randomTargetNumber() {
-  var randomNumber = Math.floor(Math.random() * (minSum - maxSum) + maxSum);
-  targetNumberOutput.textContent = randomNumber;
-};
-
-var createList = function createList() {
-  amountOfLarge = Number(largeRange.value);
-  amountOfSmall = Number(smallRange.value);
-  combineArrays();
-  finalArray = shuffle(finalArray);
-  outputFinalArray(finalArray);
-};
-
-proceedWelcomeBTN.addEventListener('click', function () {
-  // For debugging
-  resetNumberArrayOutput();
-  finalArray = [];
-  welcomeScreen.style.display = 'none';
-  createList();
-});
-reloadBTN.addEventListener('click', function () {
-  resetNumberArrayOutput();
-  welcomeScreen.style.display = 'block';
-  targetNumberOutput.style.display = 'none';
-  showTargetBTN.style.display = 'block';
-  finalArray = [];
-});
-showTargetBTN.addEventListener('click', function () {
-  randomTargetNumber();
-  showTargetBTN.style.display = 'none';
-  targetNumberOutput.style.display = 'block';
-});
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -446,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","pages/normalMode/src/main.js"], null)
-//# sourceMappingURL=/main.3e6f0f95.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.6d80b553.js.map
