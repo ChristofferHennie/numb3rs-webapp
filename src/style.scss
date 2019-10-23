@@ -15,7 +15,7 @@ body {
 
 @media (max-width: 800px) {
 	.welcome h1 {
-		font-size: 45px;
+		font-size: 40px;
 	}
 }
 
@@ -53,8 +53,9 @@ a {
 
 @media (max-width: 800px) {
 	.style-shared {
-		margin: 10px;
+		margin: 15px;
 		padding: 0 25px;
+		padding-top: 25px;
 		width: 50%;
 
 		a {
@@ -63,6 +64,10 @@ a {
 
 		img {
 			width: 75%;
+		}
+
+		&:hover {
+			transform: translateY(0px);
 		}
 	}
 }
