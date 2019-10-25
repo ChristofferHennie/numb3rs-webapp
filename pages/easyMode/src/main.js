@@ -23,7 +23,7 @@ let reloadBTN = document.querySelector('.reload_BTN');
 
 // Javascript variables
 const largeNumArray = [10, 15, 20, 25];
-const smallNumArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const smallNumArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 let amountOfLarge;
 let amountOfSmall;
