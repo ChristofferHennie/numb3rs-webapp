@@ -22,16 +22,16 @@ let showTargetBTN = document.querySelector('.showTargetNumber_BTN');
 let reloadBTN = document.querySelector('.reload_BTN');
 
 // Javascript variables
-const largeNumArray = [10, 15, 20, 25];
-const smallNumArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const largeNumArray = [25, 50, 75, 100];
+const smallNumArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let amountOfLarge;
 let amountOfSmall;
 
 let finalArray = [];
 
-let maxSum = 150;
-let minSum = 50;
+let maxSum = 999;
+let minSum = 100;
 
 let largeSliderChange = () => {
 	smallRange.value = 6 - largeRange.value;
